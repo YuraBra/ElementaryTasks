@@ -1,31 +1,29 @@
-import com.ibm.icu.text.RuleBasedNumberFormat;
-
 import java.util.InputMismatchException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
-
-    static boolean success;
-
+   static boolean success;
     public static void main (String []args){
-
-        while (!success){
-
-            System.out.println("Введите целое число в диапазоне от -9223372036854775808 до 9223372036854775807");
-            try {
-                Scanner scan = new Scanner(System.in);
-                long number = scan.nextLong();
-
-                RuleBasedNumberFormat format = new RuleBasedNumberFormat(Locale.forLanguageTag("ru"),
-                        RuleBasedNumberFormat.SPELLOUT);
-                System.out.println(format.format(number));
-                success = true;
+while(!success) {
+    try {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите высоту:");
+        int height = scan.nextInt();
+        System.out.println("Введите ширину:");
+        int width = scan.nextInt();
+        for (int j = 0; j < height; j++) {
+            if ((j + 1) % 2 == 0) {
+                System.out.print(" ");
             }
-            catch (InputMismatchException e) {
-                System.out.println("Допускается ввод только целых чисел");
+            for (int i = 0; i < width; i++) {
+                System.out.print("* ");
             }
+            System.out.println("");
+            success=true;
         }
+    } catch (InputMismatchException e) {
+        System.out.println("Введите натуральное число");
     }
 }
-
+    }
+}
