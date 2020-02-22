@@ -21,6 +21,7 @@ class ChessBoard {
         while (!success) {
             try {
                 ChessBoard.dataInput();
+
                 for (int j = 0; j < height; j++) {
                     if ((j + 1) % 2 == 0) {
                         System.out.print(" ");
